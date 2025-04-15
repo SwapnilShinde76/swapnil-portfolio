@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swapnil | Portfolio with 3D</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1b2a;
+            color: #e0e1dd;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00ffcc;
+            transition: all 0.3s ease;
+        }
+
+        header h1:hover {
+            background: linear-gradient(to right, #00ffcc, #0077ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: #a8dadc;
+            font-size: 1.1rem;
+        }
+
+        /* Navbar styles */
+        nav {
+            background-color: #1b263b;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        nav a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #00ffcc;
+            color: #0d1b2a;
+        }
+
+        section {
+            padding: 30px 20px;
+            margin-top: 60px;
+            /* Adjusting for the fixed navbar */
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #00ffcc;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00ffcc;
+            display: inline-block;
+        }
+
+        .skills span {
+            display: inline-block;
+            margin: 8px;
+            padding: 10px 16px;
+            border: 2px solid #00ffcc;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .skills span:hover {
+            background-color: #00ffcc;
+            color: #0d1b2a;
+            transform: scale(1.1);
+        }
+
+        .project {
+            background-color: #1b263b;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, #00ffc3, #0077ff);
+            transition: all 0.4s ease;
+            z-index: 0;
+        }
+
+        .project:hover::before {
+            left: 0;
+        }
+
+        .project:hover {
+            color: #0d1b2a;
+        }
+
+        .project * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact a {
+            color: #00ffcc;
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 20px;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg"></canvas>
+    <nav>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <header>
+        <h1>Swapnil Vijaykumar Shinde</h1>
+        <p>I’m a passionate web developer and 2nd-year IT student…</p>
+    </header>
+
+    <!-- Navbar -->
+
+
+    <section class="skills" id="skills">
+        <h2>Skills</h2>
+        <div>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Flask</span>
+            <span>MySQL</span>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>1. Student Dashboard for Small School</h3>
+            <p>Flask-based portal with role login, grades & attendance features.</p>
+        </div>
+        <div class="project">
+            <h3>2. Placement Portal for the Institute</h3>
+            <p>Connects students to companies, shows placement drives and results.</p>
+        </div>
+        <div class="project">
+            <h3>3. Pixel Club Website</h3>
+            <p>Official college club site with event showcase and team profiles.</p>
+        </div>
+        <div class="project">
+            <h3>🚧 Upcoming: AI Career Counselor</h3>
+            <p>Uses ML to suggest career paths based on skills, interests, and aptitude.</p>
+        </div>
+        <div class="project">
+            <h3>🚧 Upcoming: Marathi Panchang App</h3>
+            <p>Professional calendar app with marriage muhurat and cultural events.</p>
+        </div>
+        
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact</h2>
+        <a href="mailto:mr.swapnilshinde.77@gmail.com">📧 mr.swapnilshinde.77@gmail.com</a>
+        <a href="https://wa.me/918668638160" target="_blank">📱 WhatsApp: 8668638160</a>
+    </section>
+
+    <footer>
+        &copy; 2025 Swapnil Shinde. All rights reserved.
+    </footer>
+
+    <!-- THREE.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
+    const renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById("bg"),
+        alpha: true,
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // Lights
+    const pointLight = new THREE.PointLight(0xffffff, 1);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    const ambientLight = new THREE.AmbientLight(0x222222);
+    scene.add(ambientLight);
+
+    // Geometry: Icosahedron (20-faced shape)
+    const geometry = new THREE.IcosahedronGeometry(1, 1);
+    const material = new THREE.MeshStandardMaterial({
+        color: 0x00ffcc,
+        wireframe: false,
+        metalness: 0.4,
+        roughness: 0.3,
+        emissive: 0x00ffcc,
+        emissiveIntensity: 0.6,
+    });
+
+    const icosahedron = new THREE.Mesh(geometry, material);
+    scene.add(icosahedron);
+
+    camera.position.z = 4;
+
+    // Mouse & scroll effects
+    let scrollY = 0;
+    let mouse = { x: 0, y: 0 };
+
+    window.addEventListener("scroll", () => {
+        scrollY = window.scrollY;
+    });
+
+    document.addEventListener("mousemove", (event) => {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Animate
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Rotation
+        icosahedron.rotation.x += 0.005 + mouse.y * 0.01;
+        icosahedron.rotation.y += 0.005 + mouse.x * 0.01;
+
+        // Slight movement based on scroll
+        icosahedron.position.y = Math.sin(scrollY * 0.002) * 0.5;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+</script>
+
+</body>
+
+</html>
